@@ -7,8 +7,12 @@
 *
 */
 
-import Player from '../public/Player.mjs';
-import Collectible from '../public/Collectible.mjs';
+// import Player from '../public/Player.mjs';
+const Player = require('../public/Player.mjs');
+
+// import Collectible from '../public/Collectible.mjs';
+const Collectible = require('../public/Collectible.mjs');
+
 const chai = require('chai');
 const assert = chai.assert;
 const { JSDOM } = require('jsdom');
@@ -73,7 +77,7 @@ suite('Unit Tests', () => {
       const expectedPos2 = { x: 95, y: 100 }
 
       assert.deepEqual(testPos1, expectedPos1);
-      assert.deepEqual(testPos2, expectedPos2);      
+      assert.deepEqual(testPos2, expectedPos2);
       done();
     });
 
@@ -90,7 +94,7 @@ suite('Unit Tests', () => {
       const testPlayer2 = new Player({ x: 150, y: 150, id: 2 });
       testPlayer1.score = 5;
       testPlayer2.score = 3;
-      const testArr = [ testPlayer1, testPlayer2 ];
+      const testArr = [testPlayer1, testPlayer2];
 
       // Account for possible space
       assert.match(testPlayer1.calculateRank(testArr), /Rank\: 1\s?\/\s?2/);
